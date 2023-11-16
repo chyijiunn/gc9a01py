@@ -10,28 +10,27 @@ import gc9a01py as gc9a01
 
 # Choose a few fonts
 
-# from fonts import vga1_8x8 as font
-from fonts import vga2_8x8 as font1
-# from fonts import vga1_8x16 as font
-from fonts import vga2_8x16 as font2
-# from fonts import vga1_16x16 as font
-# from fonts import vga1_bold_16x16 as font
-# from fonts import vga2_16x16 as font
-from fonts import vga2_bold_16x16 as font3
-# from fonts import vga1_16x32 as font
-# from fonts import vga1_bold_16x32 as font
-# from fonts import vga2_16x32 as font
-from fonts import vga2_bold_16x32 as font4
-
+# from fonts.romfonts import vga1_8x8 as font
+from fonts.romfonts import vga2_8x8 as font1
+# from fonts.romfonts import vga1_8x16 as font
+from fonts.romfonts import vga2_8x16 as font2
+# from fonts.romfonts import vga1_16x16 as font
+# from fonts.romfonts import vga1_bold_16x16 as font
+# from fonts.romfonts import vga2_16x16 as font
+from fonts.romfonts import vga2_bold_16x16 as font3
+# from fonts.romfonts import vga1_16x32 as font
+# from fonts.romfonts import vga1_bold_16x32 as font
+# from fonts.romfonts import vga2_16x32 as font
+from fonts.romfonts import vga2_bold_16x32 as font4
 
 def main():
-    spi = SPI(2, baudrate=60000000, sck=Pin(18), mosi=Pin(23))
+    spi = SPI(1, baudrate=100_000_000, sck=Pin(10), mosi=Pin(11))
     tft = gc9a01.GC9A01(
         spi,
-        dc=Pin(21, Pin.OUT),
-        cs=Pin(13, Pin.OUT),
-        reset=Pin(26, Pin.OUT),
-        backlight=Pin(14, Pin.OUT),
+        dc=Pin(8, Pin.OUT),
+        cs=Pin(9, Pin.OUT),
+        reset=Pin(12, Pin.OUT),
+        backlight=Pin(25, Pin.OUT),
         rotation=0)
 
     while True:
